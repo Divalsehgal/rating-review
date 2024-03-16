@@ -22,8 +22,14 @@ function Review({ id, setShowReview, setShowToast, showReview }) {
   useEffect(() => {
     const storedObjectString = localStorage.getItem(id);
     const storedObject = JSON.parse(storedObjectString);
-    setRating(storedObject?.ratingNo);
-    setText(storedObject?.ratingText);
+    if (storedObject) {
+      setRating(storedObject?.ratingNo);
+      setText(storedObject?.ratingText);
+    }else{
+       setRating(0);
+        setText('');
+    }
+    setCurrentStep(0);
   }, [id]);
 
   const submitHandler = () => {
@@ -36,7 +42,7 @@ function Review({ id, setShowReview, setShowToast, showReview }) {
     setShowReview(false);
     setShowToast(true);
   };
-  
+
   const nextStep = () => {
     if (currentStep === 0 && rating == 0) {
       setError(true);
@@ -93,7 +99,12 @@ function Review({ id, setShowReview, setShowToast, showReview }) {
             </button>
           </>
         ) : (
-          <button onClick={submitHandler}>Submit</button>
+          <>
+            <button onClick={prevStep}>
+              Previous
+            </button>
+            <button onClick={submitHandler}>Submit</button>
+          </>
         )}
       </div>
     </div>
