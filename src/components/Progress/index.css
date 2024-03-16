@@ -1,0 +1,30 @@
+.progress-step-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #ccc;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.step.active {
+    background-color: #007bff;
+    color: black;
+}
+
+.line {
+    flex: 1;
+    height: 2px;
+    background-color: #ccc;
+}

@@ -1,0 +1,19 @@
+.item-container {
+    display: flex;
+    padding: 2rem 4rem;
+    border-bottom: 1px solid #ccc;
+    gap: 3rem;
+}
+
+.item-container .left {
+    width: 150px;
+    cursor: pointer;
+}
+
+.item-container .right {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
